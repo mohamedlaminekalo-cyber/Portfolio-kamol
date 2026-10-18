@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohamed Lamine Kalo — Portfolio Développeur Web & IA</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-blue-600 selection:text-white antialiased">
+
+  <!-- Header / Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
+          MK
+        </div>
+        <span class="font-bold text-lg tracking-tight text-white group-hover:text-blue-400 transition-colors">
+          Mohamed <span class="text-blue-500">Kalo</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-white transition-colors">À propos</a>
+        <a href="#projects" class="hover:text-white transition-colors">Projets</a>
+        <a href="#skills" class="hover:text-white transition-colors">Compétences</a>
+        <a href="#education" class="hover:text-white transition-colors">Formation</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#contact" class="px-4 py-2 text-sm font-semibold rounded-lg bg-blue-600 hover:bg-blue-500 text-white shadow-md shadow-blue-600/30 transition-all hover:shadow-blue-600/50">
+          Me contacter
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" type="button" class="md:hidden p-2 text-slate-400 hover:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Menu principal">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-slate-900/95 px-4 pt-2 pb-6 space-y-3">
+      <a href="#about" class="mobile-link block py-2 text-base font-medium text-slate-300 hover:text-white">À propos</a>
+      <a href="#projects" class="mobile-link block py-2 text-base font-medium text-slate-300 hover:text-white">Projets</a>
+      <a href="#skills" class="mobile-link block py-2 text-base font-medium text-slate-300 hover:text-white">Compétences</a>
+      <a href="#education" class="mobile-link block py-2 text-base font-medium text-slate-300 hover:text-white">Formation</a>
+      <a href="#contact" class="mobile-link block py-2 text-base font-medium text-slate-300 hover:text-white">Contact</a>
+      <div class="pt-2">
+        <a href="#contact" class="mobile-link block text-center w-full px-4 py-2.5 rounded-lg bg-blue-600 text-white font-semibold">
+          Me contacter
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24 pb-16">
+    <!-- Hero Section -->
+    <section id="hero" class="relative overflow-hidden pt-12 pb-20 sm:pt-16 sm:pb-28">
+      <!-- Ambient background glow -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute top-1/3 right-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <!-- Status Pill -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/60 text-xs sm:text-sm text-slate-300 mb-6 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Disponible pour opportunités • Abidjan &amp; Bouaké (ou Télétravail)</span>
+        </div>
+
+        <!-- Name & Headline -->
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+          Mohamed Lamine <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400">Kalo</span>
+        </h1>
+        <p class="text-lg sm:text-xl font-medium text-blue-400 mb-4">
+          Développeur Web &amp; Intégrateur de Solutions IA
+        </p>
+        <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-300 mb-10 leading-relaxed">
+          Conception de sites web réactifs, performants et pensés pour le mobile, enrichis par l'automatisation et les assistants d'intelligence artificielle.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#projects" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 transition-all flex items-center justify-center gap-2 group">
+            <span>Explorer mes réalisations</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+          <a href="#contact" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 hover:border-slate-600 font-semibold transition-all flex items-center justify-center gap-2">
+            <span>Échanger sur un projet</span>
+          </a>
+        </div>
+
+        <!-- Quick Badges -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-16 max-w-4xl mx-auto">
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 text-left">
+            <div class="text-blue-400 font-bold text-xl sm:text-2xl mb-1">BTS IDA</div>
+            <div class="text-xs text-slate-400">Informatique &amp; Applications</div>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 text-left">
+            <div class="text-cyan-400 font-bold text-xl sm:text-2xl mb-1">GOMYCODE</div>
+            <div class="text-xs text-slate-400">Web &amp; Compétences IA</div>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 text-left">
+            <div class="text-emerald-400 font-bold text-xl sm:text-2xl mb-1">Mobile-First</div>
+            <div class="text-xs text-slate-400">Interfaces ultra-fluides</div>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 text-left">
+            <div class="text-indigo-400 font-bold text-xl sm:text-2xl mb-1">IA Assistée</div>
+            <div class="text-xs text-slate-400">Copilot &amp; Automatisation</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 sm:py-20 border-t border-slate-800/60 relative">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2">Profil &amp; Vision</h2>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-white">À propos de moi</h3>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center mb-5">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                </svg>
+              </div>
+              <h4 class="text-lg font-bold text-white mb-2">Formation ciblée</h4>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Cursus intensif en développement web et technologies d'intelligence artificielle chez GOMYCODE (Riviera Palmeraie, Abidjan), combiné aux bases logicielles du BTS IDA.
+              </p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-slate-800 text-xs font-semibold text-blue-400">
+              Double ancrage académique &amp; pratique
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-cyan-600/20 text-cyan-400 flex items-center justify-center mb-5">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+              </div>
+              <h4 class="text-lg font-bold text-white mb-2">Méthode de travail</h4>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Utilisation combinée des standards du web moderne et d'assistants IA de pointe (comme GitHub Copilot) pour structurer un code propre, modulaire et accélérer les cycles de livraison.
+              </p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-slate-800 text-xs font-semibold text-cyan-400">
+              Rigueur technique &amp; productivité accrue
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center mb-5">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <h4 class="text-lg font-bold text-white mb-2">Objectif opérationnel</h4>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Aider les organisations, commerces et PME à moderniser leur présence en ligne avec des interfaces fiables, rapides et simples à utiliser par leurs clients.
+              </p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-slate-800 text-xs font-semibold text-emerald-400">
+              Impact concret sur le terrain
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 sm:py-20 border-t border-slate-800/60 bg-slate-900/30">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+          <div>
+            <h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2">Réalisations</h2>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Projets phares &amp; Études de cas</h3>
+          </div>
+          <!-- Filter Tabs -->
+          <div class="inline-flex p-1 rounded-xl bg-slate-900 border border-slate-800 text-xs font-semibold">
+            <button type="button" class="project-filter-btn px-3 py-1.5 rounded-lg bg-blue-600 text-white transition-colors" data-filter="all">Tous</button>
+            <button type="button" class="project-filter-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-colors" data-filter="web">Web &amp; Catalogue</button>
+            <button type="button" class="project-filter-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-colors" data-filter="ia">Outils IA</button>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Project 1 -->
+          <div class="project-card group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-slate-700 transition-all flex flex-col" data-category="web">
+            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                    Web &amp; Commerce local
+                  </span>
+                  <span class="text-xs text-slate-400 font-medium">Projet 01</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                  Portail vitrine &amp; gestion de catalogue
+                </h4>
+                <p class="text-sm text-slate-300 mb-5 leading-relaxed">
+                  Conception d'une plateforme web réactive pour valoriser une offre de services événementiels et de location d'équipements avec réservation directe.
+                </p>
+
+                <!-- Points clés -->
+                <div class="space-y-2 mb-6 text-xs text-slate-300">
+                  <div class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span><strong>Catalogue dynamique</strong> avec fiches produits détaillées et filtrage fluide.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span><strong>Formulaire de devis instantané</strong> adapté aux terminaux mobiles.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span><strong>Impact :</strong> Temps de chargement &lt; 2s sur réseau mobile 3G/4G.</span>
+                  </div>
+                </div>
+
+                <!-- Tech Badges -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300">HTML5</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300">CSS3 Flex/Grid</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300">JavaScript</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300">Git/GitHub</span>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                <button type="button" class="open-modal-btn text-sm font-semibold text-blue-400 hover:text-blue-300 inline-flex items-center gap-1.5" data-modal="modal-p1">
+                  <span>Voir l'étude de cas</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+                <span class="text-xs text-slate-500">Livré &amp; Testé</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-slate-700 transition-all flex flex-col" data-category="ia">
+            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                    Assistance IA &amp; Outils
+                  </span>
+                  <span class="text-xs text-slate-400 font-medium">Projet 02</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                  Interface web avec génération assistée par IA
+                </h4>
+                <p class="text-sm text-slate-300 mb-5 leading-relaxed">
+                  Conception d'un outil web interactif d'aide à la création de contenu et de fiches descriptives pour entrepreneurs et vendeurs indépendants.
+                </p>
+
+                <!-- Points clés -->
+                <div class="space-y-2 mb-6 text-xs text-slate-300">
+                  <div class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span><strong>Traitement dynamique</strong> des requêtes en temps réel avec champ d'édition.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span><strong>Intégration d'API d'IA</strong> pour formater et synthétiser les caractéristiques.</span>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span><strong>Impact :</strong> Temps de rédaction des fiches divisé par deux en test.</span>
+                  </div>
+                </div>
+
+                <!-- Tech Badges -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300">JavaScript</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300">API IA Générative</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300">Codespaces</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300">Prompt Design</span>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                <button type="button" class="open-modal-btn text-sm font-semibold text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1.5" data-modal="modal-p2">
+                  <span>Voir l'étude de cas</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+                <span class="text-xs text-slate-500">Prototype validé</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 sm:py-20 border-t border-slate-800/60">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2">Boîte à outils</h2>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Compétences &amp; Outils techniques</h3>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Web Dev -->
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+            <h4 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+              Développement Web
+            </h4>
+            <div class="space-y-3">
+              <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <div class="text-sm font-semibold text-slate-200">HTML5 &amp; Sémantique web</div>
+                <div class="text-xs text-slate-400">Structure solide, accessibilité et SEO de base</div>
+              </div>
+              <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <div class="text-sm font-semibold text-slate-200">CSS3 &amp; Responsive Design</div>
+                <div class="text-xs text-slate-400">Flexbox, CSS Grid, media queries adaptatives</div>
+              </div>
+              <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <div class="text-sm font-semibold text-slate-200">JavaScript Moderne (ES6+)</div>
+                <div class="text-xs text-slate-400">Interactivité DOM, appels API asynchrones</div>
+              </div>
+              <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <div class="text-sm font-semibold text-slate-200">Conception Mobile-First</div>
+                <div class="text-xs text-slate-400">Expérience utilisateur fluide sur smartphone</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Environment -->
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+            <h4 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-cyan-500"></span>
+              Environnement &amp; Versioning
+            </h4>
+            <div class="space-y-3">
+              <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <div class="text-sm font-semibold text-slate-200">Git &amp; Dépôts GitHub</div>
+                <div class="text-xs text-slate-400">Gestion des versions, branches, suivi de commits</div>
+              </div>
+              <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <div class="text-sm font-semibold text-slate-200">GitHub Codespaces</div>
+                <div class="text-xs text-slate-400">Environnements de développement cloud reproductibles</div>
+              </div>
+              <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <div class="text-sm font-semibold text-slate-200">Visual Studio Code</div>
+                <div class="text-xs text-slate-400">Extensions de linting, débogage et productivité</div>
+              </div>
+              <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <div class="text-sm font-semibold text-slate-200">Google Workspace</div>
+                <div class="text-xs text-slate-400">Collaboration, documentation et partage de livrables</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- IA & Productivity -->
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+            <h4 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-indigo-500"></span>
+              Outils IA &amp; Productivité
+            </h4>
+            <div class="space-y-3">
+              <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <div class="text-sm font-semibold text-slate-200">GitHub Copilot</div>
+                <div class="text-xs text-slate-400">Assistance intelligente au code et complétion ciblée</div>
+              </div>
+              <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <div class="text-sm font-semibold text-slate-200">Modèles IA &amp; ChatGPT</div>
+                <div class="text-xs text-slate-400">Prompt engineering, refactoring et documentation</div>
+              </div>
+              <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <div class="text-sm font-semibold text-slate-200">Loom Video Messaging</div>
+                <div class="text-xs text-slate-400">Démonstrations de fonctionnalités et revues asynchrones</div>
+              </div>
+              <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <div class="text-sm font-semibold text-slate-200">Automatisation de flux</div>
+                <div class="text-xs text-slate-400">Optimisation des tâches répétitives et gain de temps</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 sm:py-20 border-t border-slate-800/60 bg-slate-900/30">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2">Parcours</h2>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Formation &amp; Diplômes</h3>
+        </div>
+
+        <div class="space-y-6">
+          <!-- BTS IDA -->
+          <div class="p-6 sm:p-7 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-white">BTS en Informatique et Développement d'Applications (IDA)</h4>
+                <p class="text-sm text-slate-300 mt-1">Formation initiale en développement informatique, logique algorithmique et conception d'applications logicielles.</p>
+              </div>
+            </div>
+            <div class="sm:text-right shrink-0">
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                Diplôme d'État
+              </span>
+            </div>
+          </div>
+
+          <!-- GOMYCODE -->
+          <div class="p-6 sm:p-7 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-cyan-600/20 text-cyan-400 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-white">Développement Web &amp; Compétences IA</h4>
+                <p class="text-sm text-slate-300 mt-1">GOMYCODE Côte d'Ivoire — Hackerspace Riviera Palmeraie, Abidjan.</p>
+                <p class="text-xs text-slate-400 mt-1">Spécialisation pratique : intégration web moderne, outils IA collaboratifs et gestion de projets.</p>
+              </div>
+            </div>
+            <div class="sm:text-right shrink-0">
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                Certification Professionnelle
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 sm:py-24 border-t border-slate-800/60 relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2">Connectons-nous</h2>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Prêt à collaborer sur vos projets</h3>
+          <p class="text-slate-300 text-sm mt-3">Que ce soit pour une opportunité en entreprise, une mission freelance ou une collaboration technique à Abidjan, Bouaké ou à distance.</p>
+        </div>
+
+        <div class="grid md:grid-cols-5 gap-8">
+          <!-- Contact Details (2 cols) -->
+          <div class="md:col-span-2 space-y-4">
+            <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800">
+              <div class="text-xs text-slate-400 uppercase font-bold tracking-wider mb-1">Email direct</div>
+              <div class="font-mono text-sm text-white break-all mb-3 select-all">mohamedlaminekalo@gmail.com</div>
+              <button id="copy-email-btn" type="button" class="w-full px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors flex items-center justify-center gap-2">
+                <svg id="copy-icon" class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                <span id="copy-text">Copier l'adresse email</span>
+              </button>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800">
+              <div class="text-xs text-slate-400 uppercase font-bold tracking-wider mb-1">Zone de disponibilité</div>
+              <div class="text-sm font-semibold text-white">Abidjan &amp; Bouaké (Côte d'Ivoire)</div>
+              <div class="text-xs text-slate-400 mt-1">Mobilité locale &amp; Télétravail complet</div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800">
+              <div class="text-xs text-slate-400 uppercase font-bold tracking-wider mb-2">Présence en ligne</div>
+              <div class="flex gap-2">
+                <a href="https://github.com/mohamedlaminekalo-cyber" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 px-3 text-center rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors">
+                  GitHub
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 px-3 text-center rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors">
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message Form (3 cols) -->
+          <div class="md:col-span-3 p-6 sm:p-8 rounded-2xl bg-slate-900 border border-slate-800">
+            <h4 class="text-lg font-bold text-white mb-4">Envoyer un message</h4>
+            <form id="contact-form" class="space-y-4">
+              <div>
+                <label for="contact-name" class="block text-xs font-semibold text-slate-300 uppercase mb-1">Votre nom</label>
+                <input id="contact-name" type="text" required placeholder="Ex: Jean Kouassi" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm text-white placeholder-slate-500 outline-none transition-colors">
+              </div>
+              <div>
+                <label for="contact-email" class="block text-xs font-semibold text-slate-300 uppercase mb-1">Votre email</label>
+                <input id="contact-email" type="email" required placeholder="Ex: contact@entreprise.ci" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm text-white placeholder-slate-500 outline-none transition-colors">
+              </div>
+              <div>
+                <label for="contact-message" class="block text-xs font-semibold text-slate-300 uppercase mb-1">Message ou description du projet</label>
+                <textarea id="contact-message" rows="4" required placeholder="Bonjour Mohamed, je vous contacte au sujet d'une mission..." class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm text-white placeholder-slate-500 outline-none transition-colors resize-none"></textarea>
+              </div>
+              <button type="submit" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-md shadow-blue-600/30 transition-all flex items-center justify-center gap-2">
+                <span>Transmettre mon message</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </button>
+            </form>
+            <div id="form-feedback" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs text-center font-medium">
+              Merci pour votre message ! Votre demande a été enregistrée avec succès.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <div>
+        © 2026 <strong>Mohamed Lamine Kalo</strong> • Développeur Web &amp; Solutions IA.
+      </div>
+      <div class="flex items-center gap-4">
+        <span>Abidjan &amp; Bouaké, Côte d'Ivoire</span>
+        <span>•</span>
+        <a href="#hero" class="text-blue-400 hover:text-blue-300 font-medium">Haut de page ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Project 1 -->
+  <div id="modal-p1" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-6 sm:p-7 relative shadow-2xl">
+      <button type="button" class="close-modal-btn absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg" data-close="modal-p1" aria-label="Fermer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+      <div class="text-xs uppercase font-bold text-blue-400 mb-1">Étude de cas détaillée</div>
+      <h3 class="text-xl font-bold text-white mb-4">Portail vitrine &amp; gestion de catalogue</h3>
+      <div class="space-y-4 text-sm text-slate-300">
+        <div>
+          <h4 class="text-xs uppercase font-semibold text-slate-400 mb-1">Défi &amp; Contexte</h4>
+          <p class="text-xs leading-relaxed text-slate-300">Permettre à une entreprise locale de location de matériel (bâches, chaises, vaisselle, logistique événementielle) de présenter son inventaire en ligne et de recevoir des demandes de réservation claires sans pertes de temps.</p>
+        </div>
+        <div>
+          <h4 class="text-xs uppercase font-semibold text-slate-400 mb-1">Solution mise en œuvre</h4>
+          <p class="text-xs leading-relaxed text-slate-300">Conception d'une interface responsive en HTML/CSS/JavaScript pur, avec calcul automatique des montants prévisionnels et envoi immédiat des réservations par formulaire interactif.</p>
+        </div>
+        <div>
+          <h4 class="text-xs uppercase font-semibold text-slate-400 mb-1">Résultats obtenus</h4>
+          <p class="text-xs leading-relaxed text-slate-300">Temps de chargement inférieur à 2 secondes sur smartphone et parcours utilisateur simplifié en 3 étapes clés.</p>
+        </div>
+      </div>
+      <div class="mt-6 pt-4 border-t border-slate-800 flex justify-end">
+        <button type="button" class="close-modal-btn px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-white" data-close="modal-p1">
+          Fermer l'aperçu
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Project 2 -->
+  <div id="modal-p2" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-6 sm:p-7 relative shadow-2xl">
+      <button type="button" class="close-modal-btn absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg" data-close="modal-p2" aria-label="Fermer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+      <div class="text-xs uppercase font-bold text-cyan-400 mb-1">Étude de cas détaillée</div>
+      <h3 class="text-xl font-bold text-white mb-4">Interface web avec génération assistée par IA</h3>
+      <div class="space-y-4 text-sm text-slate-300">
+        <div>
+          <h4 class="text-xs uppercase font-semibold text-slate-400 mb-1">Défi &amp; Contexte</h4>
+          <p class="text-xs leading-relaxed text-slate-300">Faciliter la production rapide de fiches descriptives pour des commerçants ou créateurs qui publient de nouveaux produits chaque semaine mais manquent de temps pour rédiger.</p>
+        </div>
+        <div>
+          <h4 class="text-xs uppercase font-semibold text-slate-400 mb-1">Solution mise en œuvre</h4>
+          <p class="text-xs leading-relaxed text-slate-300">Développement d'un formulaire assisté qui interroge un modèle de langage pour générer des descriptions vendeuses, des listes à puces techniques et des mots-clés de référencement en quelques secondes.</p>
+        </div>
+        <div>
+          <h4 class="text-xs uppercase font-semibold text-slate-400 mb-1">Résultats obtenus</h4>
+          <p class="text-xs leading-relaxed text-slate-300">Gain de temps mesuré à plus de 50 % lors des tests utilisateurs et formatage uniforme des annonces.</p>
+        </div>
+      </div>
+      <div class="mt-6 pt-4 border-t border-slate-800 flex justify-end">
+        <button type="button" class="close-modal-btn px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-white" data-close="modal-p2">
+          Fermer l'aperçu
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 shadow-xl text-white text-xs font-medium flex items-center gap-2">
+      <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+      <span id="toast-message">Adresse email copiée dans le presse-papier !</span>
+    </div>
+  </div>
+
+  <script>
+    // Mobile navigation toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        const isClosed = mobileMenu.classList.contains('hidden');
+        if (isClosed) {
+          mobileMenu.classList.remove('hidden');
+          iconOpen.classList.add('hidden');
+          iconClose.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        }
+      });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        });
+      });
+    }
+
+    // Toast helper
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      if (toast && toastMsg) {
+        toastMsg.textContent = msg;
+        toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+        }, 3000);
+      }
+    }
+
+    // Copy Email functionality
+    const copyBtn = document.getElementById('copy-email-btn');
+    const copyText = document.getElementById('copy-text');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const email = 'mohamedlaminekalo@gmail.com';
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).then(() => {
+            showToast('Adresse email copiée !');
+            if (copyText) copyText.textContent = 'Adresse copiée !';
+            setTimeout(() => { if (copyText) copyText.textContent = "Copier l'adresse email"; }, 2500);
+          }).catch(() => fallbackCopy(email));
+        } else {
+          fallbackCopy(email);
+        }
+      });
+    }
+
+    function fallbackCopy(text) {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-999999px';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast('Adresse email copiée !');
+      } catch (err) {
+        showToast('Erreur lors de la copie');
+      }
+      document.body.removeChild(textArea);
+    }
+
+    // Project Category Filtering
+    const filterBtns = document.querySelectorAll('.project-filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-blue-600', 'text-white');
+          b.classList.add('text-slate-400');
+        });
+        btn.classList.add('bg-blue-600', 'text-white');
+        btn.classList.remove('text-slate-400');
+
+        const filter = btn.getAttribute('data-filter');
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Modals
+    const openModalBtns = document.querySelectorAll('.open-modal-btn');
+    const closeModalBtns = document.querySelectorAll('.close-modal-btn');
+
+    openModalBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const modalId = btn.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.remove('hidden');
+          document.body.classList.add('overflow-hidden');
+        }
+      });
+    });
+
+    closeModalBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const modalId = btn.getAttribute('data-close');
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add('hidden');
+          document.body.classList.remove('overflow-hidden');
+        }
+      });
+    });
+
+    // Contact Form submission
+    const contactForm = document.getElementById('contact-form');
+    const formFeedback = document.getElementById('form-feedback');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        contactForm.reset();
+        if (formFeedback) {
+          formFeedback.classList.remove('hidden');
+          showToast('Message envoyé avec succès !');
+          setTimeout(() => {
+            formFeedback.classList.add('hidden');
+          }, 5000);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
